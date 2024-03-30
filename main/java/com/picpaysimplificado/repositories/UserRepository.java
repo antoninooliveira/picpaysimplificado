@@ -9,5 +9,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
     //opcional é pq pode n ter sido cadastrado com cpf
     Optional<User> findUserByDocument(String document);
 
-    Optional<User> findUserByDocument(Long id);
+    Optional<User> findUserById(Long id);
+
 }
