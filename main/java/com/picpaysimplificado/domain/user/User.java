@@ -1,5 +1,6 @@
 package com.picpaysimplificado.domain.user;
 
+import com.picpaysimplificado.dtos.UserDTO;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -28,11 +29,19 @@ public class User {
     private String password; // Senha do usuário (pode ser armazenada de forma segura, como hash)
     @Column(unique = true)
     private String email; // Endereço de e-mail do usuário
-    @Enumerated(EnumType.STRING)
-    private UserType userType;
     private BigDecimal balance;
 
+    @Enumerated(EnumType.STRING)
+    private UserType userType;
 
+
+    public void user (UserDTO data){
+this.firstName = data.FirstName();
+this.lastName = data.LastName();
+this.password = data.password();
+this.email = data.email();
+this.userType = data.userType();
+}
 
 
 }
